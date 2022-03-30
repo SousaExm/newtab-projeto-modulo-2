@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Controle financeiro</title>
+</head>
+<body>
+    
+    <header>
+        <div class="content">
+            <div class="left-side-header">
+                <a href="index.html"><img class="logo" src="./assets/imgs/Ellipse 13.svg" alt="Logo"></a>
+                <h1>Controle financeiro</h1>
+            </div>
+            <nav>
+                <button>Cadastro de transações</button>
+                <p class="line"></p>
+                <button>Limpar dados</button> 
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content">
+        <section class="new-transaction">
+            <form action="">
+                <h2>Nova transaçao</h2>
+                
+                <div class="form-line">
+                    
+                    <label for="type-transaction">Tipo de transacao</label>
+                    
+                    <select name="type-transaction" id="type-transaction">
+                        <option value="Compra">Compra</option>
+                        <option value="Venda" selected>Venda</option>
+                    </select>                    
+                
+                </div>
+                
+                <div class="form-line">
+                    <label for="description">Nome da mercadoria</label>
+                    <input type="text" id="description" placeholder="Input">
+                </div>
+                
+                <div class="form-line">
+                    <label for="value">Tipo de transacao</label>
+                    <input type="text" id="value" placeholder="R$ 0,00">
+                </div>
+                
+                <div class="form-line button">
+                    <input type="submit" value="Adicionar Transaçao">
+                </div>
+                
+            </form>
+        </section>
+
+        <section class="transactions">
+            
+            <h2>Extrato de transaçoes</h2>
+            
+            <table>
+                
+                <thead>
+                    <tr>
+                        <th>
+                            
+                        </th>
+                        <th>
+                            Mercadoria
+                        </th>
+                        <th>
+                            Valor
+                        </th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            +
+                        </td>
+                        <td>
+                            Lorem ipsum dolor sit amet consectetur
+                        </td>
+                        <td>
+                            R$ 12.999,99
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            -
+                        </td>
+                        <td>
+                            uspendisse laoreet turpis
+                        </td>
+                        <td>
+                            R$ 99,99
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            +
+                        </td>
+                        <td>
+                            Lorem ipsum dolor
+                        </td>
+                        <td>
+                            R$ 9,99
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            Total:
+                        </td>
+                        <td>
+                            R$ 12.909,99 <br> [lucro]
+                        </td>
+                    </tr>
+                </tbody>            
+            </table>
+        </section>
+    </main>
+    
+    <footer>
+
+    </footer>
+</body>
+</html>
