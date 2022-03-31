@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/medias.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,15 +16,10 @@
 <body>
     
     <header>
-        <div class="content">
-            <div class="left-side-header">
-                <a href="index.html"><img class="logo" src="./assets/imgs/Ellipse 13.svg" alt="Logo"></a>
-                <h1>Controle financeiro</h1>
-            </div>
-            <nav>
-                <button>Cadastro de transações</button>
-                <p class="line"></p>
-                <button>Limpar dados</button> 
+        <div class="content" class="upper-menu">
+            <a href="index.html"><img class="logo" src="./assets/imgs/Ellipse 13.svg" alt="Logo"></a>
+            <h1 class="title">Controle financeiro</h1>
+            <nav id="nav-menu">
             </nav>
         </div>
     </header>
@@ -33,27 +29,29 @@
             <form action="">
                 <h2>Nova transaçao</h2>
                 
-                <div class="form-line">
+                <div class="container-inputs">
+                    <div class="form-line">
                     
-                    <label for="type-transaction">Tipo de transacao</label>
+                        <label for="type-transaction">Tipo de transacao</label>
+                        
+                        <select name="type-transaction" id="type-transaction">
+                            <option value="Compra">Compra</option>
+                            <option value="Venda" selected>Venda</option>
+                        </select>                    
+                
+                    </div>
                     
-                    <select name="type-transaction" id="type-transaction">
-                        <option value="Compra">Compra</option>
-                        <option value="Venda" selected>Venda</option>
-                    </select>                    
-                
-                </div>
-                
-                <div class="form-line">
-                    <label for="description">Nome da mercadoria</label>
-                    <input type="text" id="description" placeholder="Input">
-                </div>
-                
-                <div class="form-line">
-                    <label for="value">Tipo de transacao</label>
-                    <input type="text" id="value" placeholder="R$ 0,00">
-                </div>
-                
+                    <div class="form-line">
+                        <label for="description">Nome da mercadoria</label>
+                        <input type="text" id="description" placeholder="Input">
+                    </div>
+                    
+                    <div class="form-line">
+                        <label for="value">Tipo de transacao</label>
+                        <input type="text" id="value" placeholder="R$ 0,00">
+                    </div>   
+                </div>                
+                      
                 <div class="form-line button">
                     <input type="submit" value="Adicionar Transaçao">
                 </div>
@@ -116,25 +114,23 @@
                             R$ 9,99
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>
-
-                        </td>
-                        <td>
-                            Total:
-                        </td>
-                        <td>
-                            R$ 12.909,99 <br> [lucro]
-                        </td>
-                    </tr>
                 </tbody>            
             </table>
+            <div class="resume">
+                <p>
+                    Total:
+                </p>       
+                    
+                <p class="total-value">
+                    R$ 12.909,99 <br> [lucro]
+                </p>
+            </div>    
         </section>
     </main>
-    
-    <footer>
 
+    <footer>
     </footer>
+
+    <script src="./assets/scripts/script.js"></script>
 </body>
 </html>

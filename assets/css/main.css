@@ -18,6 +18,11 @@ header {
     margin-bottom: 30px;
 }
 
+.title {
+    text-align: left;
+    width:100%;
+}
+
 .content {
     display: flex;
     align-items: center;
@@ -32,18 +37,13 @@ header {
     margin: 20px 20px 20px 0;
 }
 
-.left-side-header {
-    display: flex;
-    align-items: center;
-}
-
-.left-side-header h1 {
+.title {
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 1px;
 }
 nav {
-    width:350px;
+    width:50%;
     height: 40px;
     background-color: #FFFFFF;
     
@@ -93,11 +93,26 @@ nav button {
 .new-transaction form {
     width: 100%;
     height: 100%;
+    padding: 20px 0;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
     align-items: center;
+}
+
+.container-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-inputs .form-line {
+    margin-top: 8px;
 }
 
 .form-line {
@@ -108,7 +123,8 @@ nav button {
 
 .form-line input, .form-line select {
     height:32px;
-    padding-left: 10px;
+    padding-left: 10px;    
+    margin-bottom: 8px;
 }
 
 .form-line label {
@@ -130,11 +146,101 @@ nav button {
     height: 100%;
     width: 680px;
 
+    padding: 20px 0;
+
     flex-direction: column;
     align-items: stretch;
 }
 
-.transactions h2 {
+h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+
+.transaction h2{
+    margin: 14px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid #979797;
+    height: 33px;
+}
+
+thead tr th, tbody tr td {
+    padding: 6px 0;
+}
+
+thead tr th:first-child, tbody tr td:first-child {
+    width: 40px;
     text-align: center;
 }
 
+thead tr th:nth-child(2), tbody tr td:nth-child(2) {
+    width: 30%;
+    max-width: 200px;
+    word-wrap:break-word;
+
+    text-align: left;
+}
+
+thead tr th:last-child, tbody tr td:last-child {
+    text-align: right;
+    vertical-align: text-top;
+}
+
+.resume {
+    display: flex;
+    justify-content: space-between;
+
+    border-top: 1px solid #979797;
+    margin-top:2px;
+
+    padding: 6px 0 0 40px;
+
+    font-weight: bold;
+}
+
+.total-value {
+    text-align: right;
+}
+
+footer {
+    background-color: #333333;
+    
+    height: 8px;
+    width: 100%;
+
+    position: fixed;
+
+    bottom: 0px;
+
+}
+
+.hamburger-lines {
+    display: block;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2431;
+  }
+  
+ 
+  
+  
+  
+ 
