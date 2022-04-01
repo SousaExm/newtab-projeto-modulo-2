@@ -229,6 +229,8 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    cursor: pointer;
   }
 
   .hamburger-lines .line {
