@@ -6,7 +6,7 @@ function changeMenu() {
     if(window.innerWidth > 768){
         navMenu.innerHTML = `<button>Cadastro de transações</button>
         <p class="line"></p>
-        <button>Limpar dados</button>`
+        <button id="clear-all">Limpar dados</button>`
     }else{
         navMenu.innerHTML =  `<div id="open-menu" class="hamburger-lines">
         <span class="line line1"></span>
@@ -21,8 +21,6 @@ function changeMenu() {
 
     }
 }
-
-
 
 changeMenu()
 

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/newtab-projeto-modulo-2/assets/css/main.css">
-    <link rel="stylesheet" href="/newtab-projeto-modulo-2/assets/css/medias.css">
-    <link rel="stylesheet" href="/newtab-projeto-modulo-2/assets/css/modal.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/medias.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
     
     <header>
         <div class="content">
-            <a href="/newtab-projeto-modulo-2/index.html"><img class="logo" src="/newtab-projeto-modulo-2/assets/imgs/logo.svg" alt="Logo"></a>
+            <a href="index.html"><img class="logo" src="./assets/imgs/logo.svg" alt="Logo"></a>
             <h1 class="title">Controle financeiro</h1>
             <nav id="nav-menu">
             </nav>
@@ -27,7 +27,7 @@
 
     <main class="container content">
         <section class="new-transaction">
-            <form action="">
+            <form onSubmit='getNewTransaction(event)'>
                 <h2>Nova transaçao</h2>
                 
                 <div class="container-inputs">
@@ -35,7 +35,7 @@
                     
                         <label for="type-transaction">Tipo de transacao</label>
                         
-                        <select name="type-transaction" id="type-transaction">
+                        <select name="type" id="type-transaction">
                             <option value="Compra">Compra</option>
                             <option value="Venda" selected>Venda</option>
                         </select>                    
@@ -44,12 +44,16 @@
                     
                     <div class="form-line">
                         <label for="description">Nome da mercadoria</label>
-                        <input type="text" id="description" placeholder="Input">
+                        <input type="text" name="description" id="description" placeholder="Input">
                     </div>
                     
                     <div class="form-line">
-                        <label for="value">Tipo de transacao</label>
-                        <input type="text" id="value" placeholder="R$ 0,00">
+                        <label for="value">Valor</label>
+                        <input class="amount-input"
+                               type="text" 
+                               name="amount" id="value"
+                               maxlength="10" 
+                               placeholder="R$ 0,00">
                     </div>   
                 </div>                
                       
@@ -63,8 +67,13 @@
         <section class="transactions">
             
             <h2>Extrato de transaçoes</h2>
+
+            <div class="nothing-here none">
+                <h2>Ops nao há nada por aqui</h2>
+                <p>Tente adicionar uma nova transacao</p>
+            </div>
             
-            <table>
+            <table class="table-transactions">
                 
                 <thead>
                     <tr>
@@ -80,41 +89,8 @@
                     </tr>
                 </thead>
                 
-                <tbody>
-                    
-                    <tr>
-                        <td>
-                            +
-                        </td>
-                        <td>
-                            Lorem ipsum dolor sit amet consectetur
-                        </td>
-                        <td>
-                            R$ 12.999,99
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            -
-                        </td>
-                        <td>
-                            uspendisse laoreet turpis
-                        </td>
-                        <td>
-                            R$ 99,99
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            +
-                        </td>
-                        <td>
-                            Lorem ipsum dolor
-                        </td>
-                        <td>
-                            R$ 9,99
-                        </td>
-                    </tr>
+                <tbody class="transaction-panel">
+                    <!-- Tabela renderizada por um arquivo JS -->
                 </tbody>            
             </table>
             <div class="resume">
@@ -123,7 +99,6 @@
                 </p>       
                     
                 <p class="total-value">
-                    R$ 12.909,99 <br> [lucro]
                 </p>
             </div>    
         </section>
@@ -132,7 +107,7 @@
     <div id="menu" class="modal-overlay">
         <div class="modal-container">
             <div class="modal-itens">
-                <img id="close" src="/newtab-projeto-modulo-2/assets/imgs/close.svg">   
+                <img id="close" src="./assets/imgs/close.svg">   
                 <button>Cadastro de transaçoes</button>
                 <button>Limpar dados</button>
             </div>
@@ -142,6 +117,7 @@
     <footer>
     </footer>
 
-    <script src="/newtab-projeto-modulo-2/assets/scripts/script.js"></script>
+    <script src="./assets/scripts/script.js"></script>
+    <script src="./assets/scripts/main.js"></script>
 </body>
 </html>

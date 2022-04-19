@@ -241,6 +241,17 @@ footer {
     background: #0e2431;
   }
   
+.nothing-here.none{
+    display: none;
+}
+
+.table-transactions.none{
+    display: none;
+}
+
+.resume.none{
+    display: none;
+}
  
   
   
