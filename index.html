@@ -20,7 +20,18 @@
         <div class="content">
             <a href="index.html"><img class="logo" src="./assets/imgs/logo.svg" alt="Logo"></a>
             <h1 class="title">Controle financeiro</h1>
+            
+            <div id="open-menu" class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            
             <nav id="nav-menu">
+                <img id="close-menu" src="./assets/imgs/close.svg">    
+                <button>Cadastro de transações</button>
+                <p class="line"></p>
+                <button id="clear-all">Limpar dados</button>
             </nav>
         </div>
     </header>
@@ -44,7 +55,8 @@
                     
                     <div class="form-line">
                         <label for="description">Nome da mercadoria</label>
-                        <input type="text" name="description" id="description" placeholder="Input">
+                        <input type="text" name="description" id="description" placeholder="Insira o nome aqui"
+                        required>
                     </div>
                     
                     <div class="form-line">
@@ -53,7 +65,8 @@
                                type="text" 
                                name="amount" id="value"
                                maxlength="10" 
-                               placeholder="R$ 0,00">
+                               placeholder="R$ 0,00"
+                               required>
                     </div>   
                 </div>                
                       
@@ -69,7 +82,8 @@
             <h2>Extrato de transaçoes</h2>
 
             <div class="nothing-here none">
-                <h2>Ops nao há nada por aqui</h2>
+                <img src="./assets/imgs/nothing.svg" alt="">
+                <h2>Ops... ainda nao há nada por aqui</h2>
                 <p>Tente adicionar uma nova transacao</p>
             </div>
             
@@ -105,11 +119,13 @@
     </main>
 
     <div id="menu" class="modal-overlay">
-        <div class="modal-container">
-            <div class="modal-itens">
-                <img id="close" src="./assets/imgs/close.svg">   
-                <button>Cadastro de transaçoes</button>
-                <button>Limpar dados</button>
+        <div class="modal-you-sure-container">
+            <div class="modal-itens-you-sure">
+                <img src="./assets/imgs/warning.svg" alt="">
+                <p>Voce realmente deseja apagar todas as transaçoes?</p>
+                <span>Esse processo nao poderá ser revertido!</span>    
+                <button class="confirm">Sim, eu quero apagar tudo</button>
+                <button class="cancel">Cancelar</button>
             </div>
         </div>
     </div>
@@ -117,7 +133,6 @@
     <footer>
     </footer>
 
-    <script src="./assets/scripts/script.js"></script>
     <script src="./assets/scripts/main.js"></script>
 </body>
 </html>

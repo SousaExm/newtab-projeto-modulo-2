@@ -5,6 +5,62 @@
 }
 
 @media screen and (max-width: 768px) {
+    #nav-menu{
+        width: 252px;
+        height:100%;
+
+        position:fixed;
+        right: 0;
+        top:0;
+
+        background-color:#333333;
+
+        display: none;
+        flex-direction: column;
+        justify-content:flex-start;
+    }
+
+    #nav-menu .line{
+        display:none;
+    }
+
+    #close {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        margin: 20px;
+        display: block;
+
+        align-self: flex-start;
+    }
+
+    #nav-menu button {
+        background-color:#333333;
+        color: #FFFFFF; 
+        border: none;
+        
+        margin: 0;
+        height:32px;
+        width: 100%;
+        padding: 8px 20px;
+    
+        text-align: right;
+    
+        cursor: pointer;
+    
+        font-weight: bold;
+    
+    }
+
+    #nav-menu button:hover {
+        background-color: #C4C4C4;
+        color: #333333;
+    }
+    
+    .hamburger-lines {
+        display: flex;
+    }
+    
     .container {
         flex-direction: column;
         width: 100%;
@@ -22,19 +78,22 @@
 
     .container-inputs {
         flex-direction: row;
-        margin-bottom: 20px ;
+        margin-bottom: 20px;
     }
 
     .container-inputs .form-line:first-child{
         width: 150px;
+        margin-right: 10px;
     }
 
     .container-inputs .form-line:nth-child(2){
         width: 348px; 
+        margin-right: 10px;
     }
 
     .container-inputs .form-line:last-child {
         width: 150px;
+        margin-right: 0px;
     }
 
     .new-transaction .form-line {
@@ -70,7 +129,13 @@
     }
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 600px){
+    .new-transaction{
+        height:212px;
+    }
+}
+
+@media screen and (max-width: 498px) {
     
     header{
         margin-bottom:0px; 
@@ -100,6 +165,7 @@
     .container-inputs .form-line:last-child,  
     .new-transaction .form-line{
         width: 100%;
+        margin-right: 0px;
     }
 
     .transactions h2{

@@ -4,6 +4,30 @@ let clearAllButton = document.getElementById("clear-all")
 let nothingHere = document.querySelector(".nothing-here")
 let resumeTransactions = document.querySelector(".resume")
 
+let youSureModal = document.querySelector(".modal-overlay")
+let youSureConfirm = document.querySelector(".confirm")
+let youSureCancel = document.querySelector(".cancel")
+
+let assideMenu = document.querySelector("#nav-menu")
+let openMenu = document.querySelector("#open-menu")
+let closeMenu = document.querySelector("#close-menu")
+
+window.addEventListener('resize', () =>{
+    if(window.innerWidth > 768){
+        assideMenu.style.display = "flex"
+    }else{
+        assideMenu.style.display = "none"
+    }
+})
+
+openMenu.addEventListener("click", ()=>{
+    assideMenu.style.display = "flex"
+})
+closeMenu.addEventListener("click", ()=>{
+    assideMenu.style.display = "none"
+})
+
+
 let totalValue = document.querySelector('.total-value')
 
 let amountInput = document.querySelector(".amount-input")
@@ -125,17 +149,36 @@ function getNewTransaction(event){
 }
 
 function clearAllTransactions(){
+
+    youSureModal.classList.add('on');
     
-    localStorage.setItem("FinancesData", JSON.stringify(transactionsList = []))
+    youSureConfirm.addEventListener('click', ()=>{
+        localStorage.setItem("FinancesData", JSON.stringify(transactionsList = []))
+        youSureModal.classList.remove('on')
+
+        if(window.innerWidth <= 768){
+            assideMenu.style.display = "none"
+        }
+
+        renderTransactionPanel()
+    })
+
+    youSureCancel.addEventListener('click', ()=>{
+        youSureModal.classList.remove('on')
+    })
 }
 
 clearAllButton.addEventListener('click', () => {
     clearAllTransactions()
-    renderTransactionPanel()
 })
 
-
 let amountNewTransaction = []
+
+amountInput.addEventListener("focus", ()=>{
+    amountNewTransaction = []
+    amountInput.value = maskAmount(amountNewTransaction, 100)
+})
+
 amountInput.addEventListener("keydown",(event)=>{
 
 
