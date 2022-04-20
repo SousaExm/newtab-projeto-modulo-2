@@ -12,6 +12,11 @@ let assideMenu = document.querySelector("#nav-menu")
 let openMenu = document.querySelector("#open-menu")
 let closeMenu = document.querySelector("#close-menu")
 
+let mensagesValidationForm = document.querySelector(".text-validation")
+
+let deleteUnitBtn = document.getElementsByClassName("delete-unit-btn")
+
+
 window.addEventListener('resize', () =>{
     if(window.innerWidth > 768){
         assideMenu.style.display = "flex"
@@ -22,6 +27,7 @@ window.addEventListener('resize', () =>{
 
 openMenu.addEventListener("click", ()=>{
     assideMenu.style.display = "flex"
+    closeMenu.style.display = "unset"
 })
 closeMenu.addEventListener("click", ()=>{
     assideMenu.style.display = "none"
@@ -71,21 +77,19 @@ let transactionsList = JSON.parse(localStorage.getItem('FinancesData'))
 
 //Padrao de renderizaçao do painel de transaçoes
 function renderTransactionPanel(){
-
-    totalValue.innerHTML = `${maskAmount(calcTotal(), 1)} <br> ${calcTotal() >= 0? "[Lucro]":"[Prejuizo]" }` 
-    
+     
     transactionPanel.innerHTML = ""
     if(transactionsList.length == 0){
         
         nothingHere.classList.remove("none")
         tableTransactions.classList.add("none")
-        resumeTransactions.classList.add("none")
-
+        nothingHere.classList.add("fede-in")
     }else{
 
+        nothingHere.classList.remove("fede-in")
         tableTransactions.classList.remove("none")
         nothingHere.classList.add("none")
-        resumeTransactions.classList.remove("none");
+        tableTransactions.classList.add("fede-in")
         
         for(var transaction in transactionsList){
             
@@ -96,7 +100,6 @@ function renderTransactionPanel(){
                 actualAmount = actualAmount * -1 
             }
 
-            console.log(actualAmount)
                 transactionPanel.innerHTML +=`
             <tr>
                 <td>
@@ -108,10 +111,14 @@ function renderTransactionPanel(){
                 <td>
                     ${(maskAmount(actualAmount, 1))}
                 </td>
+                <td class="delete-unit-btn" onClick="deleteUnit(${transaction})">
+                    <img src="./assets/imgs/delete.svg" alt="deletar transacao">
+                </td>
             </tr>
             `
         }
     }
+    totalValue.innerHTML = `${maskAmount(calcTotal(), 1)} <br> ${calcTotal() >= 0? "[Lucro]":"[Prejuizo]" }`
 }
 
 
@@ -121,6 +128,8 @@ function createNewTransaction(data, transaction){
     localStorage.setItem("FinancesData", JSON.stringify(data))
     renderTransactionPanel()
 }
+
+
 
 //Pega os dados inputados no form e chama a funcao para salvar os dados
 //de uma nova transacao.
@@ -145,13 +154,44 @@ function getNewTransaction(event){
         amount: amount
     }
 
-    createNewTransaction(transactionsList, currentTransaction)
+    if(amount == "0" && description == ""){
+        mensagesValidationForm.innerHTML = "Por favor, preencha os campos acima"
+    }else 
+        if(amount == "0"){
+            mensagesValidationForm.innerHTML = "Por favor, insira um valor válido"
+            }else 
+                if(description == ""){
+                    mensagesValidationForm.innerHTML = "Por favor, insira um nome válido"
+                }else{
+
+                mensagesValidationForm.classList.add("load")
+                mensagesValidationForm.innerHTML = ""
+                event.target.description.value = ""
+                event.target.amount.value = ""
+                
+                setTimeout(()=>{
+                    createNewTransaction(transactionsList, currentTransaction)
+
+                    mensagesValidationForm.classList.remove("load")
+                    mensagesValidationForm.classList.add("done")
+                },1500)
+                
+                setTimeout(()=>{
+                    mensagesValidationForm.classList.remove("done")
+                    console.log("teste")
+                },3500)
+                
+            }
 }
 
 function clearAllTransactions(){
-
-    youSureModal.classList.add('on');
     
+    if(transactionsList.length != 0){
+    youSureModal.classList.add('on');
+    }else{
+        alert("Nao existem transaçoes no momento")
+    }
+
     youSureConfirm.addEventListener('click', ()=>{
         localStorage.setItem("FinancesData", JSON.stringify(transactionsList = []))
         youSureModal.classList.remove('on')
@@ -169,7 +209,7 @@ function clearAllTransactions(){
 }
 
 clearAllButton.addEventListener('click', () => {
-    clearAllTransactions()
+        clearAllTransactions()
 })
 
 let amountNewTransaction = []
@@ -198,4 +238,11 @@ amountInput.addEventListener("keydown",(event)=>{
 
 initStorage()
 renderTransactionPanel()
+
+
+function deleteUnit(index){
+    transactionsList.splice(index, 1)
+    localStorage.setItem("FinancesData", JSON.stringify(transactionsList))
+    renderTransactionPanel()
+}
 

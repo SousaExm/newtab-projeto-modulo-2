@@ -61,11 +61,16 @@ nav button {
     height:100%;
     width: 50%;
 
+    padding: 0 10px;
+
     cursor: pointer;
 }
 
 #close-menu{
     display: none;
+    align-self: flex-start;
+    margin: 15px;
+    cursor: pointer;
 }
 
 .line {
@@ -86,7 +91,7 @@ nav button {
 
 .new-transaction {
     width: 400px;
-    height: 344px;
+    min-height: 344px;
     border: 1px solid #979797;
     border-radius: 4px;
 
@@ -144,6 +149,15 @@ nav button {
     font-weight: bold;
 }
 
+
+.text-validation{
+    margin-bottom: 8px;
+    color: red;
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
 .transactions {
     display: flex;
     height: 100%;
@@ -175,38 +189,69 @@ tr {
     height: 33px;
 }
 
-thead tr th, tbody tr td {
+thead tr th, 
+tbody tr td, 
+tfoot tr td{
     padding: 6px 0;
 }
 
-thead tr th:first-child, tbody tr td:first-child {
+thead tr th:first-child, 
+tbody tr td:first-child, 
+.first-space{
     width: 40px;
     text-align: center;
 }
 
-thead tr th:nth-child(2), tbody tr td:nth-child(2) {
+thead tr th:nth-child(2), 
+tbody tr td:nth-child(2), 
+.name-total{
     width: 30%;
     max-width: 200px;
     word-wrap:break-word;
-
     text-align: left;
 }
 
-thead tr th:last-child, tbody tr td:last-child {
+tbody tr td img {
+    height:15px;
+    width:15px;
+}
+
+thead tr th:nth-child(3), 
+tbody tr td:nth-child(3),
+.total-value{
     text-align: right;
     vertical-align: text-top;
 }
 
+thead tr th:last-child, 
+tbody tr td:last-child{
+    width: 5%;
+    padding-left:8px;
+    cursor: pointer;
+    padding-top: 8px;
+}
+
+.second-space{
+    width: 5%;
+    padding-left:8px;
+    padding-top: 8px;
+}
+
+.separate-line{
+    height:3px;
+}
+
+.especial-tr{
+    border: none;
+}
+
 .resume {
-    display: flex;
-    justify-content: space-between;
-
-    border-top: 1px solid #979797;
-    margin-top:2px;
-
-    padding: 6px 0 0 40px;
-
+    border: none;
     font-weight: bold;
+}
+
+.name-total{
+    vertical-align: top;
 }
 
 .total-value {
@@ -252,10 +297,6 @@ footer {
     display: none;
 }
 
-.resume.none{
-    display: none;
-}
-
 .nothing-here {
     display: flex;
     margin-top: 20px;
@@ -277,8 +318,48 @@ footer {
 .nothing-here p, h2{
     margin-bottom: 4px;
     text-align: center;
+}
+
+.nothing-here.fede-in{
+    animation: fede-in 1s;
+}
+
+.table-transactions.fede-in{
+    animation-name: fede-in 1s;
+}
+
+.load{
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ffb801;
+
+    border-radius: 50%;
+
+    border-top-color:transparent;
+
+    animation: load 0.6s infinite linear;
+}
+
+.done {
+    background-image: url('../imgs/done.svg');
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+}
+  
+@keyframes load {
+    to {
+        transform: rotate(360deg);
+    }
 } 
   
-  
-  
+
+@keyframes fede-in{
+    to{
+        opacity: 1;
+    }
+    from{
+        opacity: 0;
+    }
+}
  

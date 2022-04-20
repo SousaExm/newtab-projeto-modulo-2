@@ -55,21 +55,24 @@
                     
                     <div class="form-line">
                         <label for="description">Nome da mercadoria</label>
-                        <input type="text" name="description" id="description" placeholder="Insira o nome aqui"
-                        required>
+                        <input type="text" name="description" id="description" placeholder="Insira o nome aqui" maxlength="20">
                     </div>
                     
                     <div class="form-line">
                         <label for="value">Valor</label>
                         <input class="amount-input"
-                               type="text" 
                                name="amount" id="value"
+                               type="tel"
                                maxlength="10" 
                                placeholder="R$ 0,00"
-                               required>
+                               >
                     </div>   
-                </div>                
-                      
+                </div>
+                
+                <div class="text-validation">
+                    <!-- Textos de validaçao do formulário e loading -->
+                    
+                </div>
                 <div class="form-line button">
                     <input type="submit" value="Adicionar Transaçao">
                 </div>
@@ -100,21 +103,32 @@
                         <th>
                             Valor
                         </th>
+                        <th>
+                         
+                            <!-- Espaço para o botao delete -->
+                        </th>
                     </tr>
                 </thead>
                 
                 <tbody class="transaction-panel">
                     <!-- Tabela renderizada por um arquivo JS -->
-                </tbody>            
+                </tbody>
+                
+                <tfoot class="resume">
+                    <tr class="separate-line"></tr>
+                    <tr class="especial-tr">
+                        <td class="first-space">
+                        </td>
+                        <td class="name-total">
+                            Total:
+                        </td>
+                        <td class="total-value">
+                        </td>
+                        <td class="second-space">
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
-            <div class="resume">
-                <p>
-                    Total:
-                </p>       
-                    
-                <p class="total-value">
-                </p>
-            </div>    
         </section>
     </main>
 
@@ -130,8 +144,11 @@
         </div>
     </div>
 
+    
+
     <footer>
     </footer>
+
 
     <script src="./assets/scripts/main.js"></script>
 </body>

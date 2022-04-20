@@ -78,7 +78,7 @@
 
     .container-inputs {
         flex-direction: row;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
 
     .container-inputs .form-line:first-child{
